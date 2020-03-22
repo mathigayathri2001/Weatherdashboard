@@ -47,7 +47,7 @@ $(document).ready(function () {
 				$("#Wind").text('Wind Speed: ' + data.wind.speed + ' KPH');
 				$("#Humidity").text('Humidity: ' + data.main.humidity + ' %');
 				$("#Temperature").text('Temperature: ' + data.main.temp + ' °C');
-				let img = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
+				let img = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
 				$(".card-title").append(img);
 
 				// get the latitude and longtitude  from data and store it in a variable				
@@ -92,7 +92,7 @@ $(document).ready(function () {
 						let card = $('<div>').addClass('card bg-primary text-white');
 						let cardBody = $('<div>').addClass('card-body p-2');
 						let title = $('<h5>').addClass('card-title').text(new Date(forecastData.list[i].dt_txt).toLocaleDateString());
-						let img = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + forecastData.list[i].weather[0].icon + '.png');
+						let img = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + forecastData.list[i].weather[0].icon + '.png');
             let p1 = $('<p>').addClass('card-text').text('Temp: ' + forecastData.list[i].main.temp_max + ' °C');
 						let p2 = $('<p>').addClass('card-text').text('Humidity: ' + forecastData.list[i].main.humidity + '%');
 						cardBody.append(title, img, p1, p2);
