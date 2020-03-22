@@ -19,9 +19,10 @@ $(document).ready(function () {
 	$('#search-button').on('click', function () {
 		cityName = $("#search-value").val();
     $("#search-value").val('');
-    if (cityList.indexOf(cityName) === -1) {
+    if (cityList.indexOf(cityName) === -1 ) {
       	cityList.push(cityName)
-      	localStorage.setItem('lastcity', JSON.stringify(cityName));
+		localStorage.setItem('lastcity', JSON.stringify(cityName));
+		localStorage.setItem('lastCityList', JSON.stringify(cityList));  
       	addCity(cityName);
       }
 		currentWeather();
@@ -111,14 +112,25 @@ $(document).ready(function () {
 
 	
 	let lastcity = JSON.parse(localStorage.getItem('lastcity'));
-	console.log(lastcity);
+	let lastCityList = JSON.parse(localStorage.getItem('lastCityList'));
 
+	
+	console.log(lastcity);
+	console.log(lastCityList);
+	
 	if (lastcity !== null) {
 
 		cityName = lastcity;
+		cityList = lastCityList;
 		currentWeather();
 		forecastWeather();
-	
+
+		for (let i = 0; i < lastCityList.length; i++) {
+			cityName = lastCityList[i];
+			addCity(cityName);
+			
+		}
+	    
 	}
 
 })
